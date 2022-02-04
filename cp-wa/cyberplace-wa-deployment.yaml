@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cyberplace-wa
+  name: cyberplace-wa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: cyberplace-wa
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: cyberplace-wa
+    spec:
+      containers:
+      - env:
+        - name: REACT_APP_API_PORT
+          value: "3500"
+        - name: REACT_APP_API_URL
+          value: cyberplace-proxy
+        image: juarodriguezc/cp-wa:latest
+        imagePullPolicy: ""
+        name: cyberplace-wa
+        ports:
+        - containerPort: 3000
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

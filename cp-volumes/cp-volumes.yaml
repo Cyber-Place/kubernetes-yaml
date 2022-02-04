@@ -1,0 +1,89 @@
+# ldap
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cyberplace-ldap-claim0
+spec:
+  # storageClassName: cp-storage-gke
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 100Mi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cyberplace-ldap-claim1
+spec:
+  # storageClassName: cp-storage-gke
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 100Mi
+
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cyberplace-ldap-claim2
+spec:
+  # storageClassName: cp-storage-gke
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 100Mi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cyberplace-ldap-claim3
+  name: cyberplace-ldap-claim3
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+status: {}
+
+---
+
+# rabbit
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rabbitmq-claim0
+spec:
+  # storageClassName: cp-storage-gke
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 100Mi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rabbitmq-claim1
+spec:
+  # storageClassName: cp-storage-gke
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 100Mi
+

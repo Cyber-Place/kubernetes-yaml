@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cyberplace-account-ms
+  name: cyberplace-account-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: cyberplace-account-ms
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: cyberplace-account-ms
+    spec:
+      containers:
+      - env:
+        - name: LDAP_CONFIG_HOST
+          value: cyberplace-ldap
+        - name: RABBITMQ_CONFIG_HOST
+          value: rabbitmq
+        image: juarodriguezc/cp-account:latest
+        imagePullPolicy: ""
+        name: cyberplace-account-ms
+        ports:
+        - containerPort: 8000
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

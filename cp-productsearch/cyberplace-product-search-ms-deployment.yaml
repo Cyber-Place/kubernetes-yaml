@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cyberplace-product-search-ms
+  name: cyberplace-product-search-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: cyberplace-product-search-ms
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: cyberplace-product-search-ms
+    spec:
+      containers:
+      - env:
+        - name: ProductSearchSettings__Host
+          value: productsearch.s7zqn.mongodb.net
+        - name: RabbitMQSettings__Host
+          value: rabbitmq
+        - name: RabbitMQSettings__Port
+          value: "5672"
+        image: juarodriguezc/cp-productsearch:latest
+        imagePullPolicy: ""
+        name: cyberplace-product-search-ms
+        ports:
+        - containerPort: 5005
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
