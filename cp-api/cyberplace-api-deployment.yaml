@@ -30,7 +30,11 @@ spec:
           value: cyberplace-account-ms
         - name: HISTORY_URL
           value: cyberplace-product-search-ms
-        image: juarodriguezc/cp-api
+        - name: PRODUCT_URL
+          value: cyberplace-product-management-ms
+        - name: PURCHASE_URL
+          value: product-purchase-ms
+        image: jrozou/cp-api:v1
         imagePullPolicy: ""
         name: cyberplace-api
         ports:

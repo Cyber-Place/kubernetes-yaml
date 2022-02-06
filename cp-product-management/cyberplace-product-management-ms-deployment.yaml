@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cyberplace-product-management-ms
+  name: cyberplace-product-management-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: cyberplace-product-management-ms
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: cyberplace-product-management-ms
+    spec:
+      containers:
+        - env:
+            - name: DB_HOST
+              value: 172.23.64.4
+          image: jrozou/cp-pm:latest
+          name: cyberplace-product-management-ms
+          ports:
+            - containerPort: 3333
+          resources: {}
+      restartPolicy: Always
+status: {}
