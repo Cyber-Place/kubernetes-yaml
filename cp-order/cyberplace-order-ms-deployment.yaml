@@ -6,15 +6,14 @@ metadata:
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
-    io.kompose.service: product-purchase-ms
-  name: product-purchase-ms
+    io.kompose.service: cyberplace-order-ms
+  name: cyberplace-order-ms
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: product-purchase-ms
-  strategy:
-    type: Recreate
+      io.kompose.service: cyberplace-order-ms
+  strategy: {}
   template:
     metadata:
       annotations:
@@ -22,13 +21,16 @@ spec:
         kompose.version: 1.26.0 (40646f47)
       creationTimestamp: null
       labels:
-        io.kompose.service: product-purchase-ms
+        io.kompose.service: cyberplace-order-ms
     spec:
       containers:
-        - image: jrozou/cp-pc:latest
-          name: product-purchase-ms
+        - env:
+            - name: DATABASE_IP
+              value: 35.226.229.122
+          image: dgonzalezo06/order_ms
+          name: cyberplace-order-ms
           ports:
-            - containerPort: 3030
+            - containerPort: 3000
           resources: {}
       restartPolicy: Always
 status: {}

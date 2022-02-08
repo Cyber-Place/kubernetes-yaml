@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: cyberplace-wa
   name: cyberplace-wa
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       io.kompose.service: cyberplace-wa
@@ -28,7 +28,7 @@ spec:
         - name: REACT_APP_API_PORT
           value: "3500"
         - name: REACT_APP_API_URL
-          value: 35.222.239.169
+          value: 35.188.74.176
         image: juarodriguezc/cp-wa:latest
         imagePullPolicy: ""
         name: cyberplace-wa

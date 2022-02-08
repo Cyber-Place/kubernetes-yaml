@@ -34,6 +34,8 @@ spec:
           value: cyberplace-product-management-ms
         - name: PURCHASE_URL
           value: product-purchase-ms
+        - name: ORDER_URL
+          value: cyberplace-order-ms
         image: jrozou/cp-api:v1
         imagePullPolicy: ""
         name: cyberplace-api
