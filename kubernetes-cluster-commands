@@ -1,0 +1,7 @@
+gcloud config set compute/zone us-central1-a
+
+gcloud container clusters create cyberplace
+
+gcloud container clusters get-credentials cyberplace
+
+gcloud container clusters resize cyberplace --node-pool default-pool --num-nodes 4

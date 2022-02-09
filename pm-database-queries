@@ -1,0 +1,17 @@
+gcloud sql connect cyberplace-product-management-db --user=postgres
+
+CREATE DATABASE cp_pm_db;
+
+\connect cp_pm_db;
+
+CREATE TABLE products (id SERIAL PRIMARY KEY, name VARCHAR(255), price real, description VARCHAR(255), stars integer, img_url VARCHAR(255));
+
+INSERT INTO public.products ("name", "price", "description", "stars", "img_url")
+      VALUES('DRACONIC K553', 60, 'Keyboard RGB', 5, 'https://storage.googleapis.com/cyberplace_st_bucket/0b50d0cb-cd33-490a-aefd-d3eadba095e2.jpg'),
+      ('Death Note', 10, 'Is true', 4, 'https://storage.googleapis.com/cyberplace_st_bucket/2be0985f-e48d-4fb2-b8e3-cb6674ede6b8.jpg'),
+      ('Shrek DVD', 4, 'The movie', 5, 'https://storage.googleapis.com/cyberplace_st_bucket/35d9c7b7-5904-4e28-ac18-c6133559f892.jpg'),
+      ('Mouse Logitech MX 2s', 100, 'Bluetooth', 5, 'https://storage.googleapis.com/cyberplace_st_bucket/53d380cb-7042-49d9-942d-4b8a8894758f.jpg');
+      
+SELECT * FROM products;
+
+--------------> Turorial: https://cloud.google.com/sql/docs/postgres/quickstart?hl=es_419
