@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
         kompose.version: 1.26.0 (40646f47)
       creationTimestamp: null
       labels:
@@ -27,7 +27,7 @@ spec:
         - env:
             - name: DATABASE_IP
               value: 35.226.229.122
-          image: dgonzalezo06/order_ms
+          image: dgonzalezo06/order_ms:v1
           name: cyberplace-order-ms
           ports:
             - containerPort: 3000
